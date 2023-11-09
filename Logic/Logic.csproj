@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Vector\" />
+    <None Remove="Matrix\" />
+    <None Remove="Helpers\" />
+    <None Remove="Drawable\" />
+    <None Remove="Drawer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vector\" />
+    <Folder Include="Matrix\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Drawable\" />
+    <Folder Include="Drawer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="ConsoleDrawer.cs" />
+  </ItemGroup>
+</Project>

@@ -5,9 +5,14 @@ namespace Logic
 	{
 		protected ADrawableMatrix child;
 
-		public AMatrixDecorator(ADrawableMatrix matrix) : base(matrix, matrix.Digits)
+		public AMatrixDecorator(ADrawableMatrix child) : base(child, child.Digits)
 		{
-			this.child = matrix;
+			this.child = child;
+		}
+
+		public override ADrawableMatrix GetMatrix()
+		{
+			return child.GetMatrix();
 		}
 	}
 }

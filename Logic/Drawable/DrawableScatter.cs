@@ -3,7 +3,7 @@ namespace Logic
 {
 	public class DrawableScatter : ADrawableMatrix
 	{
-		public DrawableScatter(ScatterMatrix matrix, int digits) : base(matrix, digits) {}
+		public DrawableScatter(ScatterMatrix child, int digits) : base(child, digits) {}
 
 		public override void Draw(IDrawer drawer)
 		{
@@ -15,7 +15,7 @@ namespace Logic
 					if (item != 0)
 					{ 
 						drawer.SetPosition(col * (3 + Digits), row);
-						drawer.DrawDouble(GetItem(row, col), Digits);
+						drawer.DrawDouble(item, Digits);
 					}
 				}
 			}
@@ -25,9 +25,15 @@ namespace Logic
 		{
 			return Rows;
 		}
+
 		public override int DrawableWidth()
 		{
 			return (3 + Digits) * Columns - 1;
+		}
+
+		public override ADrawableMatrix GetMatrix()
+		{
+			return this;
 		}
 	}
 }

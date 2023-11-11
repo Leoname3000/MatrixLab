@@ -30,6 +30,8 @@ namespace Logic
 
 		public abstract int DrawableHeight();
 		public abstract int DrawableWidth();
+
+		public abstract ADrawableMatrix GetMatrix();
 	}
 }
 

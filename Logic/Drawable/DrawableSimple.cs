@@ -3,7 +3,7 @@ namespace Logic
 {
 	public class DrawableSimple : ADrawableMatrix
 	{
-		public DrawableSimple(SimpleMatrix matrix, int digits) : base(matrix, digits) {}
+		public DrawableSimple(SimpleMatrix child, int digits) : base(child, digits) {}
 
 		public override void Draw(IDrawer drawer)
 		{
@@ -15,16 +15,21 @@ namespace Logic
 					drawer.DrawDouble(GetItem(row, col), Digits);
 				}
 			}
-			//drawer.SetPosition(0, Rows);
 		}
 
 		public override int DrawableHeight()
 		{
 			return Rows;
 		}
+
 		public override int DrawableWidth()
 		{
 			return (3 + Digits) * Columns - 1;
+		}
+
+		public override ADrawableMatrix GetMatrix()
+		{
+			return this;
 		}
 	}
 }

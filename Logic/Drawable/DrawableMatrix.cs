@@ -1,9 +1,9 @@
 ﻿using System;
 namespace Logic
 {
-	public class DrawableScatter : ADrawableMatrix
+	public class DrawableMatrix : ADrawableMatrix
 	{
-		public DrawableScatter(ScatterMatrix child, int digits) : base(child, digits) {}
+		public DrawableMatrix(IMatrix matrix, int digits) : base(matrix, digits) {}
 
 		public override void Draw(IDrawer drawer)
 		{
@@ -11,18 +11,10 @@ namespace Logic
 			{
 				for (int col = 0; col < Columns; col++)
 				{
-					DrawItem(row, col, drawer);
+					var item = GetItem(row, col);
+					drawer.SetPosition(col * (3 + Digits), row);
+					matrix.Accept(new DrawItemVisitor(item, Digits, drawer));
 				}
-			}
-		}
-
-		protected internal override void DrawItem(int row, int col, IDrawer drawer)
-		{
-			var item = GetItem(row, col);
-			if (item != 0)
-			{
-				drawer.SetPosition(col * (3 + Digits), row);
-				drawer.DrawDouble(item, Digits);
 			}
 		}
 
@@ -34,6 +26,11 @@ namespace Logic
 		public override int DrawableWidth()
 		{
 			return (3 + Digits) * Columns - 1;
+		}
+
+		protected internal override void DrawItem(int i, int j, IDrawer drawer)
+		{
+			throw new NotImplementedException();
 		}
 
 		public override ADrawableMatrix GetMatrix()

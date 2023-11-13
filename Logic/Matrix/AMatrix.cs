@@ -9,9 +9,9 @@ namespace Logic
 		{
 			Columns = columns;
 			rowArray = new IVector[rows];
-			for(int c = 0; c < columns; c++)
+			for(int r = 0; r < rows; r++)
 			{
-				rowArray[c] = CreateVector();
+				rowArray[r] = CreateVector();
 			}
 		}
 
@@ -27,6 +27,8 @@ namespace Logic
 		public int Rows => rowArray.Length;
 
 		public int Columns { get; private set; }
+
+		public abstract void Accept(IVisitor visitor);
 	}
 }
 

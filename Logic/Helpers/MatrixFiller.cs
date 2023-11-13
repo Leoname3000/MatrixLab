@@ -24,7 +24,7 @@ namespace Logic
 			{
 				for(int col = 0; col < matrix.Columns; col++)
 				{
-					matrix.SetItem(row, col, randomValues[row * matrix.Rows + col]);
+					matrix.SetItem(row, col, randomValues[row * matrix.Columns + col]);
 				}
 			}
 		}

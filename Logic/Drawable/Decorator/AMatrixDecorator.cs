@@ -10,6 +10,17 @@ namespace Logic
 			this.child = child;
 		}
 
+		//protected override void DrawItem(IDrawer drawer)
+		//{
+		//	AMatrixDecorator g = (AMatrixDecorator)child;
+		//	g.DrawItem(drawer);
+		//}
+
+		protected internal override void DrawItem(int i, int j, IDrawer drawer)
+		{
+			child.DrawItem(i, j, drawer);
+		}
+
 		public override ADrawableMatrix GetMatrix()
 		{
 			return child.GetMatrix();

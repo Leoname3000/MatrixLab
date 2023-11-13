@@ -7,6 +7,7 @@ namespace Logic
 		void SetItem(int i, int j, double item);
 		int Columns { get; }
 		int Rows { get; }
+		void Accept(IVisitor visitor);
 	}
 }
 

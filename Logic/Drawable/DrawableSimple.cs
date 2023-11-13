@@ -11,10 +11,15 @@ namespace Logic
 			{
 				for (int col = 0; col < Columns; col++)
 				{
-					drawer.SetPosition(col * (3 + Digits), row);
-					drawer.DrawDouble(GetItem(row, col), Digits);
+					DrawItem(row, col, drawer);
 				}
 			}
+		}
+
+		protected internal override void DrawItem(int row, int col, IDrawer drawer)
+		{
+			drawer.SetPosition(col * (3 + Digits), row);
+			drawer.DrawDouble(GetItem(row, col), Digits);
 		}
 
 		public override int DrawableHeight()

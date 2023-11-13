@@ -3,7 +3,7 @@ namespace Logic
 {
 	public abstract class ADrawableMatrix : IDrawable, IMatrix
 	{
-		IMatrix matrix;
+		protected IMatrix matrix;
 
 		public ADrawableMatrix(IMatrix matrix, int digits)
 		{
@@ -12,6 +12,7 @@ namespace Logic
 		}
 
 		public abstract void Draw(IDrawer drawer);
+		protected internal abstract void DrawItem(int i, int j, IDrawer drawer);
 
 		public double GetItem(int i, int j)
 		{
@@ -32,6 +33,11 @@ namespace Logic
 		public abstract int DrawableWidth();
 
 		public abstract ADrawableMatrix GetMatrix();
+
+		public void Accept(IVisitor visitor)
+		{
+			matrix.Accept(visitor);
+		}
 	}
 }
 

@@ -13,6 +13,9 @@
     <None Remove="Helpers\" />
     <None Remove="Drawable\" />
     <None Remove="Drawer\" />
+    <None Remove="Matrix\Decorator\" />
+    <None Remove="Visitor\" />
+    <None Remove="Drawable\Decorator\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vector\" />
@@ -20,8 +23,12 @@
     <Folder Include="Helpers\" />
     <Folder Include="Drawable\" />
     <Folder Include="Drawer\" />
+    <Folder Include="Matrix\Decorator\" />
+    <Folder Include="Visitor\" />
+    <Folder Include="Drawable\Decorator\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ConsoleDrawer.cs" />
+    <Compile Remove="Drawable\TransposeDecorator.cs" />
   </ItemGroup>
 </Project>

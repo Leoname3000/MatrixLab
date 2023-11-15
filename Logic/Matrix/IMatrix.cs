@@ -8,6 +8,7 @@ namespace Logic
 		int Columns { get; }
 		int Rows { get; }
 		void Accept(IVisitor visitor);
-	}
+		IMatrix GetMatrix();
+    }
 }
 

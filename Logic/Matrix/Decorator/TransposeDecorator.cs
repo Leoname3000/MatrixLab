@@ -27,7 +27,12 @@ namespace Logic
 		public void SetItem(int i, int j, double item)
 		{
 			child.SetItem(j, i, item);
-		}
-	}
+        }
+
+        public IMatrix GetMatrix()
+        {
+            return child.GetMatrix();
+        }
+    }
 }
 

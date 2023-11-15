@@ -35,6 +35,11 @@ namespace Logic
 			else if (j == col2) j = col1;
 			child.SetItem(i, j, item);
 		}
+
+		public IMatrix GetMatrix()
+		{
+			return child.GetMatrix();
+		}
 	}
 }
 

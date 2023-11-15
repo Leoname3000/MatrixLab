@@ -34,7 +34,12 @@ namespace Logic
 			if (i == row1) i = row2;
 			else if (i == row2) i = row1;
 			child.SetItem(i, j, item);
-		}
-	}
+        }
+
+        public IMatrix GetMatrix()
+        {
+            return child.GetMatrix();
+        }
+    }
 }
 

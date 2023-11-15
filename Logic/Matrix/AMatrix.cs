@@ -29,6 +29,11 @@ namespace Logic
 		public int Columns { get; private set; }
 
 		public abstract void Accept(IVisitor visitor);
+
+		public IMatrix GetMatrix()
+		{
+			return this;
+		}
 	}
 }
 

@@ -21,9 +21,19 @@ namespace Logic
 			child.DrawItem(i, j, drawer);
 		}
 
-		public override ADrawableMatrix GetMatrix()
+        public override ADrawableMatrix GetChild()
+        {
+			return child;
+        }
+
+        public override ADrawableMatrix GetMatrix()
 		{
 			return child.GetMatrix();
+		}
+
+		public override void ChangeMatrix(IMatrix matrix)
+		{
+			child.ChangeMatrix(matrix);
 		}
 	}
 }

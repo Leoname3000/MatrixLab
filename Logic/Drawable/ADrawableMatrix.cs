@@ -32,7 +32,9 @@ namespace Logic
 		public abstract int DrawableHeight();
 		public abstract int DrawableWidth();
 
-		public abstract ADrawableMatrix GetMatrix();
+        public abstract ADrawableMatrix GetChild();
+        public abstract ADrawableMatrix GetMatrix();
+		public abstract void ChangeMatrix(IMatrix matrix);
 
 		public void Accept(IVisitor visitor)
 		{

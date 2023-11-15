@@ -16,6 +16,7 @@ namespace Logic
 					matrix.Accept(new DrawItemVisitor(item, Digits, drawer));
 				}
 			}
+			drawer.SetPosition(0, DrawableHeight());
 		}
 
 		public override int DrawableHeight()
@@ -33,10 +34,21 @@ namespace Logic
 			throw new NotImplementedException();
 		}
 
-		public override ADrawableMatrix GetMatrix()
+        public override ADrawableMatrix GetChild()
+        {
+            return this;
+        }
+
+        public override ADrawableMatrix GetMatrix()
 		{
 			return this;
 		}
-	}
+
+        public override void ChangeMatrix(IMatrix matrix)
+        {
+            this.matrix = matrix;
+			base.matrix = matrix;
+        }
+    }
 }
 

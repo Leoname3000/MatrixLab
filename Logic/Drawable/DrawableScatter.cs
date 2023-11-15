@@ -40,6 +40,16 @@ namespace Logic
 		{
 			return this;
 		}
-	}
+
+        public override ADrawableMatrix GetChild()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void ChangeMatrix(IMatrix matrix)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
 

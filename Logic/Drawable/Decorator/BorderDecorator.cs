@@ -9,12 +9,7 @@ namespace Logic
 		public override void Draw(IDrawer drawer)
 		{
 			drawer.SetPosition(0, 0);
-			drawer.DrawHorizontalLine(DrawableWidth());
-			drawer.DrawVerticalLine(DrawableHeight());
-			drawer.SetPosition(DrawableWidth() - 1, 0);
-			drawer.DrawVerticalLine(DrawableHeight());
-			drawer.SetPosition(0, DrawableHeight() - 1);
-			drawer.DrawHorizontalLine(DrawableWidth());
+			drawer.DrawBox(DrawableWidth(), DrawableHeight());
 			drawer.MoveOrigin(1, 1);
 			drawer.SetPosition(0, 0);
 			child.Draw(drawer);

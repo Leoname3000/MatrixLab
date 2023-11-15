@@ -27,7 +27,7 @@ namespace GUI
             else
                 currentMatrix.ChangeMatrix(matrix);
 
-            if (borderCheckBox.Checked && currentMatrix == currentMatrix.GetMatrix())
+            if (borderCheckBox.Checked && currentMatrix == currentMatrix.GetDrawableMatrix())
                 currentMatrix = new BorderDecorator(currentMatrix);
         }
 
@@ -60,14 +60,14 @@ namespace GUI
             if (borderCheckBox.Checked)
                 currentMatrix = new BorderDecorator(currentMatrix);
             else
-                currentMatrix = currentMatrix.GetMatrix();
+                currentMatrix = currentMatrix.GetDrawableMatrix();
             Redraw();
         }
 
         private void plusBorderButton_Click(object sender, EventArgs e)
         {
             if (currentMatrix == null) return;
-            if (currentMatrix == currentMatrix.GetMatrix())
+            if (currentMatrix == currentMatrix.GetDrawableMatrix())
             {
                 borderCheckBox.Checked = true;
                 return;
@@ -81,8 +81,38 @@ namespace GUI
             if (currentMatrix == null || !borderCheckBox.Checked) return;
             currentMatrix = currentMatrix.GetChild();
             Redraw();
-            if (currentMatrix == currentMatrix.GetMatrix())
+            if (currentMatrix == currentMatrix.GetDrawableMatrix())
                 borderCheckBox.Checked = false;
+        }
+
+        private void transposeButton_Click(object sender, EventArgs e)
+        {
+            if (currentMatrix == null) return;
+            currentMatrix.ChangeMatrix(new TransposeDecorator(currentMatrix.GetMatrix()));
+            Redraw();
+        }
+
+        private void swapButton_Click(object sender, EventArgs e)
+        {
+            if (currentMatrix == null) return;
+            IMatrix matrix = currentMatrix.GetMatrix();
+            Random random = new Random();
+
+            int row1 = random.Next(0, matrix.Rows);
+            int row2; do { row2 = random.Next(0, matrix.Rows); } while (row1 == row2);
+
+            int col1 = random.Next(0, matrix.Columns);
+            int col2; do { col2 = random.Next(0, matrix.Columns); } while (col1 == col2);
+
+            currentMatrix.ChangeMatrix(new ColumnSwapperDecorator(new RowSwapperDecorator(matrix, row1, row2), col1, col2));
+            Redraw();
+        }
+
+        private void restoreButton_Click(object sender, EventArgs e)
+        {
+            if (currentMatrix == null) return;
+            currentMatrix.ChangeMatrix(currentMatrix.GetMatrix().GetMatrix());
+            Redraw();
         }
     }
 }

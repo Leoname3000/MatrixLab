@@ -32,9 +32,12 @@
             generateScatterButton = new Button();
             borderCheckBox = new CheckBox();
             groupBox = new GroupBox();
+            transposeButton = new Button();
             plusBorderButton = new Button();
             minusBorderButton = new Button();
             panel = new Panel();
+            swapButton = new Button();
+            restoreButton = new Button();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,6 +74,9 @@
             // 
             // groupBox
             // 
+            groupBox.Controls.Add(restoreButton);
+            groupBox.Controls.Add(swapButton);
+            groupBox.Controls.Add(transposeButton);
             groupBox.Controls.Add(plusBorderButton);
             groupBox.Controls.Add(minusBorderButton);
             groupBox.Controls.Add(generateSimpleButton);
@@ -78,10 +84,20 @@
             groupBox.Controls.Add(generateScatterButton);
             groupBox.Location = new Point(48, 32);
             groupBox.Name = "groupBox";
-            groupBox.Size = new Size(305, 257);
+            groupBox.Size = new Size(305, 412);
             groupBox.TabIndex = 3;
             groupBox.TabStop = false;
             groupBox.Text = "Управление";
+            // 
+            // transposeButton
+            // 
+            transposeButton.Location = new Point(39, 238);
+            transposeButton.Name = "transposeButton";
+            transposeButton.Size = new Size(227, 31);
+            transposeButton.TabIndex = 5;
+            transposeButton.Text = "Транспонировать";
+            transposeButton.UseVisualStyleBackColor = true;
+            transposeButton.Click += transposeButton_Click;
             // 
             // plusBorderButton
             // 
@@ -112,6 +128,26 @@
             panel.Size = new Size(572, 442);
             panel.TabIndex = 4;
             // 
+            // swapButton
+            // 
+            swapButton.Location = new Point(39, 280);
+            swapButton.Name = "swapButton";
+            swapButton.Size = new Size(227, 31);
+            swapButton.TabIndex = 6;
+            swapButton.Text = "Перенумеровать";
+            swapButton.UseVisualStyleBackColor = true;
+            swapButton.Click += swapButton_Click;
+            // 
+            // restoreButton
+            // 
+            restoreButton.Location = new Point(39, 341);
+            restoreButton.Name = "restoreButton";
+            restoreButton.Size = new Size(227, 31);
+            restoreButton.TabIndex = 7;
+            restoreButton.Text = "Восстановить";
+            restoreButton.UseVisualStyleBackColor = true;
+            restoreButton.Click += restoreButton_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -135,5 +171,8 @@
         private Panel panel;
         private Button minusBorderButton;
         private Button plusBorderButton;
+        private Button transposeButton;
+        private Button restoreButton;
+        private Button swapButton;
     }
 }

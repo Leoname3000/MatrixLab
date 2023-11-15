@@ -14,14 +14,16 @@ namespace GUI
         Pen pen;
         int curX, curY;
         int multX, multY;
+        double scaleX, scaleY;
 
         public GraphicDrawer(Panel canvas, Pen pen) 
         {
             this.canvas = canvas;
             graphics = canvas.CreateGraphics();
             this.pen = pen;
-            (curX, curY) = (30, 30);
+            (curX, curY) = (0, 0);
             (multX, multY) = (10, 15);
+            (scaleX, scaleY) = (1.5, 1.5);
         }
 
         public void DrawDouble(double d, int digits)
@@ -33,11 +35,13 @@ namespace GUI
             }
             int x = curX + multX + 1;
             int y = (int)(curY * 1.25) + 8;
+            int width = (int)(multX * 4 * scaleX);
+            int height = (int)(multY * scaleY);
             var label = new Label()
             {
                 Text = d.ToString(format),
                 Location = new Point(x, y),
-                Size = new Size(multX * 4, multY),
+                Size = new Size(width, height),
             };
             canvas.Controls.Add(label);
         }
@@ -46,26 +50,28 @@ namespace GUI
         {
             int x = (int)(curX * 1) + 1;
             int y = (int)(curY * 1.15) + 1;
-            graphics.DrawLine(pen, x, y, x + length * multX, y);
+            length = (int)(length * multX * scaleX);
+            graphics.DrawLine(pen, x, y, x + length, y);
         }
 
         public void DrawVerticalLine(int length)
         {
             int x = (int)(curX * 1.04) + 1;
             int y = (int)(curY * 1);
-            graphics.DrawLine(pen, x, y, x, y + length * multY);
+            length = (int)(length * multY * scaleY);
+            graphics.DrawLine(pen, x, y, x, y + length);
         }
 
         public void MoveOrigin(int deltaX, int deltaY)
         {
-            curX += deltaX * multX;
-            curY += deltaY * multY;
+            curX += (int)(deltaX * multX * scaleX);
+            curY += (int)(deltaY * multY * scaleY);
         }
 
         public void SetPosition(int x, int y)
         {
-            curX = x * multX;
-            curY = y * multY;
+            curX = (int)(x * multX * scaleX);
+            curY = (int)(y * multY * scaleY);
         }
 
         public void Undraw()

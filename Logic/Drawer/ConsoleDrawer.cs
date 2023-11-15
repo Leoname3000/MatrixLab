@@ -40,6 +40,16 @@ namespace Logic
 			Console.SetCursorPosition(curX, curY);
 		}
 
+		public void DrawBox(int width, int height)
+		{
+			DrawHorizontalLine(width);
+			DrawVerticalLine(height);
+			SetPosition(width - 1, 0);
+			DrawVerticalLine(height);
+			SetPosition(0, height - 1);
+			DrawHorizontalLine(width);
+		}
+
 		public void DrawHorizontalLine(int length)
 		{
 			var (curX, curY) = Console.GetCursorPosition();

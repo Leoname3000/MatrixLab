@@ -12,6 +12,7 @@ namespace GUI
         Panel canvas;
         Graphics graphics;
         Pen pen;
+        int originX, originY;
         int curX, curY;
         int multX, multY;
         double scaleX, scaleY;
@@ -21,9 +22,23 @@ namespace GUI
             this.canvas = canvas;
             graphics = canvas.CreateGraphics();
             this.pen = pen;
+            (originX, originY) = (0, 0);
             (curX, curY) = (0, 0);
             (multX, multY) = (10, 15);
-            (scaleX, scaleY) = (1.5, 1.5);
+            //(scaleX, scaleY) = (1.5, 1.5);
+            (scaleX, scaleY) = (1.0, 1.0);
+        }
+
+        public void SetPosition(int x, int y)
+        {
+            curX = (int)(x * multX * scaleX);
+            curY = (int)(y * multY * scaleY);
+        }
+
+        public void MoveOrigin(int deltaX, int deltaY)
+        {
+            originX += (int)(deltaX * multX * scaleX);
+            originY += (int)(deltaY * multY * scaleY);
         }
 
         public void DrawDouble(double d, int digits)
@@ -33,10 +48,10 @@ namespace GUI
             {
                 format += "0";
             }
-            int x = curX + multX + 1;
-            int y = (int)(curY * 1.25) + 8;
-            int width = (int)(multX * 4 * scaleX);
+            int width = (int)(multX * (digits + 2) * scaleX);
             int height = (int)(multY * scaleY);
+            int x = originX + curX + (multX * (digits + 2) - width) / 2 + multX / 2;
+            int y = originY + curY + (multY - height) / 2;
             var label = new Label()
             {
                 Text = d.ToString(format),
@@ -46,32 +61,30 @@ namespace GUI
             canvas.Controls.Add(label);
         }
 
+        public void DrawBox(int width, int height)
+        {
+            DrawHorizontalLine(width);
+            DrawVerticalLine(height);
+            SetPosition(width, 0);
+            DrawVerticalLine(height);
+            SetPosition(0, height);
+            DrawHorizontalLine(width);
+        }
+
         public void DrawHorizontalLine(int length)
         {
-            int x = (int)(curX * 1) + 1;
-            int y = (int)(curY * 1.15) + 1;
+            int x = originX + curX;
+            int y = originY + curY;
             length = (int)(length * multX * scaleX);
             graphics.DrawLine(pen, x, y, x + length, y);
         }
 
         public void DrawVerticalLine(int length)
         {
-            int x = (int)(curX * 1.04) + 1;
-            int y = (int)(curY * 1);
+            int x = originX + curX;
+            int y = originY + curY;
             length = (int)(length * multY * scaleY);
             graphics.DrawLine(pen, x, y, x, y + length);
-        }
-
-        public void MoveOrigin(int deltaX, int deltaY)
-        {
-            curX += (int)(deltaX * multX * scaleX);
-            curY += (int)(deltaY * multY * scaleY);
-        }
-
-        public void SetPosition(int x, int y)
-        {
-            curX = (int)(x * multX * scaleX);
-            curY = (int)(y * multY * scaleY);
         }
 
         public void Undraw()

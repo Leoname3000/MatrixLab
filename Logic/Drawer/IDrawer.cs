@@ -8,6 +8,7 @@ namespace Logic
 		void DrawDouble(double d, int digits);
 		void DrawHorizontalLine(int length);
 		void DrawVerticalLine(int length);
+		void DrawBox(int width, int height);
 	}
 }
 

@@ -32,13 +32,15 @@
             generateScatterButton = new Button();
             borderCheckBox = new CheckBox();
             groupBox = new GroupBox();
+            plusBorderButton = new Button();
+            minusBorderButton = new Button();
             panel = new Panel();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
             // generateSimpleButton
             // 
-            generateSimpleButton.Location = new Point(39, 55);
+            generateSimpleButton.Location = new Point(39, 51);
             generateSimpleButton.Name = "generateSimpleButton";
             generateSimpleButton.Size = new Size(227, 31);
             generateSimpleButton.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             // generateScatterButton
             // 
-            generateScatterButton.Location = new Point(39, 121);
+            generateScatterButton.Location = new Point(39, 106);
             generateScatterButton.Name = "generateScatterButton";
             generateScatterButton.Size = new Size(227, 31);
             generateScatterButton.TabIndex = 1;
@@ -59,16 +61,18 @@
             // borderCheckBox
             // 
             borderCheckBox.AutoSize = true;
-            borderCheckBox.Location = new Point(93, 192);
+            borderCheckBox.Location = new Point(53, 166);
             borderCheckBox.Name = "borderCheckBox";
-            borderCheckBox.Size = new Size(115, 19);
+            borderCheckBox.Size = new Size(113, 19);
             borderCheckBox.TabIndex = 2;
-            borderCheckBox.Text = "Добавить рамку";
+            borderCheckBox.Text = "Рисовать рамку";
             borderCheckBox.UseVisualStyleBackColor = true;
             borderCheckBox.CheckedChanged += borderCheckBox_CheckedChanged;
             // 
             // groupBox
             // 
+            groupBox.Controls.Add(plusBorderButton);
+            groupBox.Controls.Add(minusBorderButton);
             groupBox.Controls.Add(generateSimpleButton);
             groupBox.Controls.Add(borderCheckBox);
             groupBox.Controls.Add(generateScatterButton);
@@ -79,23 +83,44 @@
             groupBox.TabStop = false;
             groupBox.Text = "Управление";
             // 
+            // plusBorderButton
+            // 
+            plusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            plusBorderButton.Location = new Point(233, 162);
+            plusBorderButton.Name = "plusBorderButton";
+            plusBorderButton.Size = new Size(32, 28);
+            plusBorderButton.TabIndex = 4;
+            plusBorderButton.Text = "+1";
+            plusBorderButton.UseVisualStyleBackColor = true;
+            plusBorderButton.Click += plusBorderButton_Click;
+            // 
+            // minusBorderButton
+            // 
+            minusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            minusBorderButton.Location = new Point(185, 162);
+            minusBorderButton.Name = "minusBorderButton";
+            minusBorderButton.Size = new Size(32, 28);
+            minusBorderButton.TabIndex = 3;
+            minusBorderButton.Text = "-1";
+            minusBorderButton.UseVisualStyleBackColor = true;
+            minusBorderButton.Click += minusBorderButton_Click;
+            // 
             // panel
             // 
-            panel.Location = new Point(410, 83);
+            panel.Location = new Point(410, 54);
             panel.Name = "panel";
-            panel.Size = new Size(296, 160);
+            panel.Size = new Size(572, 442);
             panel.TabIndex = 4;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(723, 330);
+            ClientSize = new Size(994, 508);
             Controls.Add(panel);
             Controls.Add(groupBox);
             Name = "Form1";
             Text = "Генератор матриц 5000";
-            Load += Form1_Load;
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
             ResumeLayout(false);
@@ -108,5 +133,7 @@
         private CheckBox borderCheckBox;
         private GroupBox groupBox;
         private Panel panel;
+        private Button minusBorderButton;
+        private Button plusBorderButton;
     }
 }

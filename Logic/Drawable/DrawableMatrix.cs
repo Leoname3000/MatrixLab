@@ -39,10 +39,17 @@ namespace Logic
             return this;
         }
 
-        public override ADrawableMatrix GetMatrix()
+        public override ADrawableMatrix GetDrawableMatrix()
 		{
 			return this;
 		}
+
+		// Returnable matrix may be additionally decorated with IMatrix decorators.
+		// To retrieve endpoint IMatrix, client should call GetMatrix().GetMatrix()
+        public override IMatrix GetMatrix()
+        {
+            return matrix;
+        }
 
         public override void ChangeMatrix(IMatrix matrix)
         {

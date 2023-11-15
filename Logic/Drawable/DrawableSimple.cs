@@ -32,12 +32,17 @@ namespace Logic
 			return (3 + Digits) * Columns - 1;
 		}
 
-		public override ADrawableMatrix GetMatrix()
+		public override ADrawableMatrix GetDrawableMatrix()
 		{
 			return this;
 		}
 
         public override ADrawableMatrix GetChild()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IMatrix GetMatrix()
         {
             throw new NotImplementedException();
         }

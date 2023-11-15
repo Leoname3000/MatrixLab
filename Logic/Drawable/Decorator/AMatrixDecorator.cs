@@ -26,12 +26,17 @@ namespace Logic
 			return child;
         }
 
-        public override ADrawableMatrix GetMatrix()
+        public override ADrawableMatrix GetDrawableMatrix()
 		{
-			return child.GetMatrix();
+			return child.GetDrawableMatrix();
 		}
 
-		public override void ChangeMatrix(IMatrix matrix)
+        public override IMatrix GetMatrix()
+        {
+            return child.GetMatrix();
+        }
+
+        public override void ChangeMatrix(IMatrix matrix)
 		{
 			child.ChangeMatrix(matrix);
 		}

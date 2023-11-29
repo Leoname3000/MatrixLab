@@ -1,38 +1,20 @@
 ﻿using System;
 namespace Logic
 {
-	public class TransposeDecorator : IMatrix
+	public class TransposeDecorator : ADecorator
 	{
-		IMatrix child;
-
-		public TransposeDecorator(IMatrix child)
+		public TransposeDecorator(IMatrix child) : base(child)
 		{
 			this.child = child;
 		}
 
-		public int Columns => child.Rows;
-
-		public int Rows => child.Columns;
-
-		public void Accept(IVisitor visitor)
+		public override (int, int) NewPos(int row, int col)
 		{
-			child.Accept(visitor);
+			return (col, row);
 		}
 
-		public double GetItem(int i, int j)
-		{
-			return child.GetItem(j, i);
-		}
-
-		public void SetItem(int i, int j, double item)
-		{
-			child.SetItem(j, i, item);
-        }
-
-        public IMatrix GetMatrix()
-        {
-            return child.GetMatrix();
-        }
-    }
+		public override int Columns => child.Rows;
+		public override int Rows => child.Columns;
+	}
 }
 

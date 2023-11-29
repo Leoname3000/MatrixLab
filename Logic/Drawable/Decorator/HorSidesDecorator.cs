@@ -3,7 +3,7 @@ namespace Logic
 {
 	public class HorSidesDecorator : AMatrixDecorator
 	{
-		public HorSidesDecorator(ADrawableMatrix matrix) : base(matrix) { }
+		public HorSidesDecorator(ADrawableMatrix child) : base(child) {}
 
 		public override void Draw(IDrawer drawer)
 		{
@@ -18,15 +18,8 @@ namespace Logic
 			drawer.SetPosition(0, DrawableHeight());
 		}
 
-		public override int DrawableHeight()
-		{
-			return child.DrawableHeight() + 2;
-		}
-
-		public override int DrawableWidth()
-		{
-			return child.DrawableWidth();
-		}
+		public override int DrawableHeight() => child.DrawableHeight() + 2;
+		public override int DrawableWidth() => child.DrawableWidth();
 	}
 }
 

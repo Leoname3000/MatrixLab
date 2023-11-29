@@ -5,41 +5,16 @@ namespace Logic
 	{
 		protected ADrawableMatrix child;
 
-		public AMatrixDecorator(ADrawableMatrix child) : base(child, child.Digits)
+		public AMatrixDecorator(ADrawableMatrix child)
 		{
 			this.child = child;
 		}
 
-		//protected override void DrawItem(IDrawer drawer)
-		//{
-		//	AMatrixDecorator g = (AMatrixDecorator)child;
-		//	g.DrawItem(drawer);
-		//}
+		public override ADrawableMatrix GetChild() => child;
+		public override ADrawableMatrix GetEndpoint() => child.GetEndpoint();
 
-		protected internal override void DrawItem(int i, int j, IDrawer drawer)
-		{
-			child.DrawItem(i, j, drawer);
-		}
-
-        public override ADrawableMatrix GetChild()
-        {
-			return child;
-        }
-
-        public override ADrawableMatrix GetDrawableMatrix()
-		{
-			return child.GetDrawableMatrix();
-		}
-
-        public override IMatrix GetMatrix()
-        {
-            return child.GetMatrix();
-        }
-
-        public override void ChangeMatrix(IMatrix matrix)
-		{
-			child.ChangeMatrix(matrix);
-		}
+		public override IMatrix GetMatrix() => child.GetMatrix();
+		public override void ChangeMatrix(IMatrix matrix) => child.ChangeMatrix(matrix);
 	}
 }
 

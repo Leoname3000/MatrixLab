@@ -10,22 +10,22 @@
   <ItemGroup>
     <None Remove="Vector\" />
     <None Remove="Matrix\" />
-    <None Remove="Helpers\" />
     <None Remove="Drawable\" />
     <None Remove="Drawer\" />
     <None Remove="Matrix\Decorator\" />
     <None Remove="Visitor\" />
     <None Remove="Drawable\Decorator\" />
+    <None Remove="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vector\" />
     <Folder Include="Matrix\" />
-    <Folder Include="Helpers\" />
     <Folder Include="Drawable\" />
     <Folder Include="Drawer\" />
     <Folder Include="Matrix\Decorator\" />
     <Folder Include="Visitor\" />
     <Folder Include="Drawable\Decorator\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ConsoleDrawer.cs" />

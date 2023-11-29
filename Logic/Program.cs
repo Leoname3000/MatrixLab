@@ -38,5 +38,14 @@ internal class Program
 		ADrawableMatrix secondDrawable = new DrawableMatrix(second, 2);
 		secondDrawable = new BorderDecorator(new BorderDecorator(secondDrawable));
 		secondDrawable.Draw(new ConsoleDrawer('+'));
+
+		Console.WriteLine();
+
+		var group = new GroupMatrix();
+		group.AddMatrix(first);
+		group.AddMatrix(second);
+		var tgroup = new TransposeDecorator(group);
+		ADrawableMatrix groupDrawable = new BorderDecorator(new DrawableMatrix(tgroup, 2));
+		groupDrawable.Draw(new ConsoleDrawer('$'));
 	}
 }

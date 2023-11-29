@@ -1,45 +1,25 @@
 ﻿using System;
 namespace Logic
 {
-	public class ColumnSwapperDecorator : IMatrix
+	public class ColumnSwapperDecorator : ADecorator
 	{
-		IMatrix child;
 		int col1, col2;
 
-		public ColumnSwapperDecorator(IMatrix child, int col1, int col2)
+		public ColumnSwapperDecorator(int col1, int col2, IMatrix child) : base(child)
 		{
-			this.child = child;
 			this.col1 = col1;
 			this.col2 = col2;
 		}
 
-		public int Columns => child.Columns;
-
-		public int Rows => child.Rows;
-
-		public void Accept(IVisitor visitor)
+		public override (int, int) NewPos(int row, int col)
 		{
-			child.Accept(visitor);
+			if (col == col1) col = col2;
+			else if (col == col2) col = col1;
+			return (row, col);
 		}
 
-		public double GetItem(int i, int j)
-		{
-			if (j == col1) j = col2;
-			else if (j == col2) j = col1;
-			return child.GetItem(i, j);
-		}
-
-		public void SetItem(int i, int j, double item)
-		{
-			if (j == col1) j = col2;
-			else if (j == col2) j = col1;
-			child.SetItem(i, j, item);
-		}
-
-		public IMatrix GetMatrix()
-		{
-			return child.GetMatrix();
-		}
+		public override int Columns => child.Columns;
+		public override int Rows => child.Rows;
 	}
 }
 

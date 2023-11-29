@@ -5,6 +5,8 @@ namespace Logic
 	{
 		void VisitSimpleMatrix(SimpleMatrix simpleMatrix);
 		void VisitScatterMatrix(ScatterMatrix scatterMatrix);
+		void VisitDecorator(ADecorator decorator);
+		void VisitGroupMatrix(GroupMatrix groupMatrix);
 	}
 }
 

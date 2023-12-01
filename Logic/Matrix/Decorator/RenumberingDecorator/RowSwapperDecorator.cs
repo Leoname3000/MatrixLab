@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Logic
 {
-	public class RowSwapperDecorator : ADecorator
+	public class RowSwapperDecorator : ARenumberingDecorator
 	{
 		int row1, row2;
 

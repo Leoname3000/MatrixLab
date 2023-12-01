@@ -19,7 +19,8 @@ namespace Logic
 				for (int col = 0; col < matrix.Columns; col++)
 				{
 					drawer.SetPosition(col * (3 + Digits), row);
-					matrix.Accept(new DrawItemVisitor(row, col, Digits, drawer));
+					var item = matrix.GetItem(row, col);
+					matrix.Accept(new DrawItemVisitor(row, col, item, Digits, drawer));
 				}
 			}
 			drawer.SetPosition(0, DrawableHeight());

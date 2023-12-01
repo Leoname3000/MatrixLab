@@ -10,19 +10,8 @@ namespace Logic
 			this.child = child;
 		}
 
-		public abstract (int, int) NewPos(int row, int col);
-
-		public double GetItem(int i, int j)
-		{
-			var (newRow, newCol) = NewPos(i, j);
-			return child.GetItem(newRow, newCol);
-		}
-
-		public void SetItem(int i, int j, double item)
-		{
-			var (newRow, newCol) = NewPos(i, j);
-			child.SetItem(newRow, newCol, item);
-		}
+		public abstract double GetItem(int i, int j);
+		public abstract void SetItem(int i, int j, double item);
 
 		public abstract int Columns { get; }
 		public abstract int Rows { get; }
@@ -37,10 +26,7 @@ namespace Logic
 			return child.GetEndpoint();
 		}
 
-		public void Accept(IVisitor visitor)
-		{
-			visitor.VisitDecorator(this);
-		}
+		public abstract void Accept(IVisitor visitor);
 	}
 }
 

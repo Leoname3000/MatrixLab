@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Logic
 {
-	public class TransposeDecorator : ADecorator
+	public class TransposeDecorator : ARenumberingDecorator
 	{
 		public TransposeDecorator(IMatrix child) : base(child)
 		{

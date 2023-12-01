@@ -12,20 +12,24 @@
     <None Remove="Matrix\" />
     <None Remove="Drawable\" />
     <None Remove="Drawer\" />
-    <None Remove="Matrix\Decorator\" />
     <None Remove="Visitor\" />
     <None Remove="Drawable\Decorator\" />
     <None Remove="Helpers\" />
+    <None Remove="Matrix\Decorator\" />
+    <None Remove="Matrix\Decorator\ModifyingDecorator\" />
+    <None Remove="Matrix\Decorator\RenumberingDecorator\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vector\" />
     <Folder Include="Matrix\" />
     <Folder Include="Drawable\" />
     <Folder Include="Drawer\" />
-    <Folder Include="Matrix\Decorator\" />
     <Folder Include="Visitor\" />
     <Folder Include="Drawable\Decorator\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Matrix\Decorator\" />
+    <Folder Include="Matrix\Decorator\ModifyingDecorator\" />
+    <Folder Include="Matrix\Decorator\RenumberingDecorator\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="ConsoleDrawer.cs" />

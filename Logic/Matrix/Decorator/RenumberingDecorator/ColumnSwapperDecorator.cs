@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Logic
 {
-	public class ColumnSwapperDecorator : ADecorator
+	public class ColumnSwapperDecorator : ARenumberingDecorator
 	{
 		int col1, col2;
 

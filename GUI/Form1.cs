@@ -27,7 +27,7 @@ namespace GUI
             else
                 currentMatrix.ChangeMatrix(matrix);
 
-            if (borderCheckBox.Checked && currentMatrix == currentMatrix.GetDrawableMatrix())
+            if (borderCheckBox.Checked && currentMatrix == currentMatrix.GetEndpoint())
                 currentMatrix = new BorderDecorator(currentMatrix);
         }
 
@@ -60,14 +60,14 @@ namespace GUI
             if (borderCheckBox.Checked)
                 currentMatrix = new BorderDecorator(currentMatrix);
             else
-                currentMatrix = currentMatrix.GetDrawableMatrix();
+                currentMatrix = currentMatrix.GetEndpoint();
             Redraw();
         }
 
         private void plusBorderButton_Click(object sender, EventArgs e)
         {
             if (currentMatrix == null) return;
-            if (currentMatrix == currentMatrix.GetDrawableMatrix())
+            if (currentMatrix == currentMatrix.GetEndpoint())
             {
                 borderCheckBox.Checked = true;
                 return;
@@ -81,7 +81,7 @@ namespace GUI
             if (currentMatrix == null || !borderCheckBox.Checked) return;
             currentMatrix = currentMatrix.GetChild();
             Redraw();
-            if (currentMatrix == currentMatrix.GetDrawableMatrix())
+            if (currentMatrix == currentMatrix.GetEndpoint())
                 borderCheckBox.Checked = false;
         }
 
@@ -104,14 +104,14 @@ namespace GUI
             int col1 = random.Next(0, matrix.Columns);
             int col2; do { col2 = random.Next(0, matrix.Columns); } while (col1 == col2);
 
-            currentMatrix.ChangeMatrix(new ColumnSwapperDecorator(new RowSwapperDecorator(matrix, row1, row2), col1, col2));
+            currentMatrix.ChangeMatrix(new ColumnSwapperDecorator(col1, col2, new RowSwapperDecorator(matrix, row1, row2)));
             Redraw();
         }
 
         private void restoreButton_Click(object sender, EventArgs e)
         {
             if (currentMatrix == null) return;
-            currentMatrix.ChangeMatrix(currentMatrix.GetMatrix().GetMatrix());
+            currentMatrix.ChangeMatrix(currentMatrix.GetMatrix().GetEndpoint());
             Redraw();
         }
     }

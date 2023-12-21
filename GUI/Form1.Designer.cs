@@ -32,18 +32,19 @@
             generateScatterButton = new Button();
             borderCheckBox = new CheckBox();
             groupBox = new GroupBox();
+            generateGroupButton = new Button();
+            restoreButton = new Button();
+            swapButton = new Button();
             transposeButton = new Button();
             plusBorderButton = new Button();
             minusBorderButton = new Button();
             panel = new Panel();
-            swapButton = new Button();
-            restoreButton = new Button();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
             // generateSimpleButton
             // 
-            generateSimpleButton.Location = new Point(39, 51);
+            generateSimpleButton.Location = new Point(39, 45);
             generateSimpleButton.Name = "generateSimpleButton";
             generateSimpleButton.Size = new Size(227, 31);
             generateSimpleButton.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             // generateScatterButton
             // 
-            generateScatterButton.Location = new Point(39, 106);
+            generateScatterButton.Location = new Point(39, 86);
             generateScatterButton.Name = "generateScatterButton";
             generateScatterButton.Size = new Size(227, 31);
             generateScatterButton.TabIndex = 1;
@@ -64,7 +65,7 @@
             // borderCheckBox
             // 
             borderCheckBox.AutoSize = true;
-            borderCheckBox.Location = new Point(53, 166);
+            borderCheckBox.Location = new Point(53, 179);
             borderCheckBox.Name = "borderCheckBox";
             borderCheckBox.Size = new Size(113, 19);
             borderCheckBox.TabIndex = 2;
@@ -74,6 +75,7 @@
             // 
             // groupBox
             // 
+            groupBox.Controls.Add(generateGroupButton);
             groupBox.Controls.Add(restoreButton);
             groupBox.Controls.Add(swapButton);
             groupBox.Controls.Add(transposeButton);
@@ -84,14 +86,44 @@
             groupBox.Controls.Add(generateScatterButton);
             groupBox.Location = new Point(48, 32);
             groupBox.Name = "groupBox";
-            groupBox.Size = new Size(305, 412);
+            groupBox.Size = new Size(305, 380);
             groupBox.TabIndex = 3;
             groupBox.TabStop = false;
             groupBox.Text = "Управление";
             // 
+            // generateGroupButton
+            // 
+            generateGroupButton.Location = new Point(39, 127);
+            generateGroupButton.Name = "generateGroupButton";
+            generateGroupButton.Size = new Size(227, 31);
+            generateGroupButton.TabIndex = 8;
+            generateGroupButton.Text = "Генерация группы матриц";
+            generateGroupButton.UseVisualStyleBackColor = true;
+            generateGroupButton.Click += generateGroupButton_Click;
+            // 
+            // restoreButton
+            // 
+            restoreButton.Location = new Point(39, 310);
+            restoreButton.Name = "restoreButton";
+            restoreButton.Size = new Size(227, 31);
+            restoreButton.TabIndex = 7;
+            restoreButton.Text = "Восстановить";
+            restoreButton.UseVisualStyleBackColor = true;
+            restoreButton.Click += restoreButton_Click;
+            // 
+            // swapButton
+            // 
+            swapButton.Location = new Point(39, 269);
+            swapButton.Name = "swapButton";
+            swapButton.Size = new Size(227, 31);
+            swapButton.TabIndex = 6;
+            swapButton.Text = "Перенумеровать";
+            swapButton.UseVisualStyleBackColor = true;
+            swapButton.Click += swapButton_Click;
+            // 
             // transposeButton
             // 
-            transposeButton.Location = new Point(39, 238);
+            transposeButton.Location = new Point(39, 228);
             transposeButton.Name = "transposeButton";
             transposeButton.Size = new Size(227, 31);
             transposeButton.TabIndex = 5;
@@ -102,7 +134,7 @@
             // plusBorderButton
             // 
             plusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            plusBorderButton.Location = new Point(233, 162);
+            plusBorderButton.Location = new Point(233, 175);
             plusBorderButton.Name = "plusBorderButton";
             plusBorderButton.Size = new Size(32, 28);
             plusBorderButton.TabIndex = 4;
@@ -113,7 +145,7 @@
             // minusBorderButton
             // 
             minusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            minusBorderButton.Location = new Point(185, 162);
+            minusBorderButton.Location = new Point(185, 175);
             minusBorderButton.Name = "minusBorderButton";
             minusBorderButton.Size = new Size(32, 28);
             minusBorderButton.TabIndex = 3;
@@ -127,26 +159,6 @@
             panel.Name = "panel";
             panel.Size = new Size(572, 442);
             panel.TabIndex = 4;
-            // 
-            // swapButton
-            // 
-            swapButton.Location = new Point(39, 280);
-            swapButton.Name = "swapButton";
-            swapButton.Size = new Size(227, 31);
-            swapButton.TabIndex = 6;
-            swapButton.Text = "Перенумеровать";
-            swapButton.UseVisualStyleBackColor = true;
-            swapButton.Click += swapButton_Click;
-            // 
-            // restoreButton
-            // 
-            restoreButton.Location = new Point(39, 341);
-            restoreButton.Name = "restoreButton";
-            restoreButton.Size = new Size(227, 31);
-            restoreButton.TabIndex = 7;
-            restoreButton.Text = "Восстановить";
-            restoreButton.UseVisualStyleBackColor = true;
-            restoreButton.Click += restoreButton_Click;
             // 
             // Form1
             // 
@@ -174,5 +186,6 @@
         private Button transposeButton;
         private Button restoreButton;
         private Button swapButton;
+        private Button generateGroupButton;
     }
 }

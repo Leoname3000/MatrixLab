@@ -5,7 +5,7 @@ namespace Logic
 	{
 		int row1, row2;
 
-		public RowSwapperDecorator(IMatrix child, int row1, int row2) : base(child)
+		public RowSwapperDecorator(int row1, int row2, IMatrix child) : base(child)
 		{
 			this.row1 = row1;
 			this.row2 = row2;

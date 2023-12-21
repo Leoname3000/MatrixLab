@@ -41,11 +41,9 @@ internal class Program
 
 		Console.WriteLine();
 
-		var group = new GroupMatrix();
-		group.AddMatrix(first);
-		group.AddMatrix(second);
-		var tgroup = new PlusDecorator(0.01, new TransposeDecorator(group));
-		ADrawableMatrix groupDrawable = new BorderDecorator(new SpacerDecorator(new DrawableMatrix(tgroup, 2)));
+		IMatrix group = new GroupMatrix(new List<IMatrix>{ first, second });
+		group = new PlusDecorator(0.01, new TransposeDecorator(group));
+		ADrawableMatrix groupDrawable = new BorderDecorator(new SpacerDecorator(new DrawableMatrix(group, 2)));
 		groupDrawable.Draw(new ConsoleDrawer('$'));
 	}
 }

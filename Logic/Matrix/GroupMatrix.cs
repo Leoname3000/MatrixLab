@@ -5,14 +5,9 @@ namespace Logic
 	{
 		public List<IMatrix> Children { get; protected set; }
 
-		public GroupMatrix()
+		public GroupMatrix(List<IMatrix> children)
 		{
-			Children = new List<IMatrix>();
-		}
-
-		public void AddMatrix(IMatrix matrix)
-		{
-			Children.Add(matrix);
+			Children = children;
 		}
 
 		public (int, int, int) ItemOfChild(int row, int col)

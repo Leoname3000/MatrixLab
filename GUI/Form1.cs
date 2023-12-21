@@ -54,6 +54,16 @@ namespace GUI
             Redraw();
         }
 
+        private void generateGroupButton_Click(object sender, EventArgs e)
+        {
+            IMatrix first = new ScatterMatrix(5, 4);
+            IMatrix second = new SimpleMatrix(2, 2);
+            IMatrix third = new SimpleMatrix(3, 3);
+            IMatrix group = new GroupMatrix(new List<IMatrix> { first, second, third });
+            UpdateMatrix(group);
+            Redraw();
+        }
+
         private void borderCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (currentMatrix == null) return;
@@ -104,7 +114,7 @@ namespace GUI
             int col1 = random.Next(0, matrix.Columns);
             int col2; do { col2 = random.Next(0, matrix.Columns); } while (col1 == col2);
 
-            currentMatrix.ChangeMatrix(new ColumnSwapperDecorator(col1, col2, new RowSwapperDecorator(matrix, row1, row2)));
+            currentMatrix.ChangeMatrix(new ColumnSwapperDecorator(col1, col2, new RowSwapperDecorator(row1, row2, matrix)));
             Redraw();
         }
 

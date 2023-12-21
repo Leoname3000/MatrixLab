@@ -25,7 +25,7 @@ internal class Program
 		//Console.WriteLine();
 		//scatterDrawable.Draw(new ConsoleDrawer('+'));
 
-		var first = new ScatterMatrix(7, 5);
+		IMatrix first = new ScatterMatrix(7, 5);
 		MatrixFiller.Fill(first, 20, 10);
 		ADrawableMatrix firstDrawable = new DrawableMatrix(first, 2);
 		firstDrawable = new BorderDecorator(new BorderDecorator(firstDrawable));
@@ -33,17 +33,20 @@ internal class Program
 
 		Console.WriteLine();
 
-		var second = new MultiplyDecorator(0.5, first);
-		//var second = first;
-		ADrawableMatrix secondDrawable = new DrawableMatrix(second, 2);
+		IMatrix second = first;
+		//second = new MultiplyDecorator(0.5, second);
+		second = new TransposeDecorator(second);
+        ADrawableMatrix secondDrawable = new DrawableMatrix(second, 2);
 		secondDrawable = new BorderDecorator(new BorderDecorator(secondDrawable));
 		secondDrawable.Draw(new ConsoleDrawer('+'));
 
 		Console.WriteLine();
 
 		IMatrix group = new GroupMatrix(new List<IMatrix>{ first, second });
-		group = new PlusDecorator(0.01, new TransposeDecorator(group));
-		ADrawableMatrix groupDrawable = new BorderDecorator(new SpacerDecorator(new DrawableMatrix(group, 2)));
-		groupDrawable.Draw(new ConsoleDrawer('$'));
+		//group = new PlusDecorator(0.01, group);
+		group = new TransposeDecorator(group);
+		ADrawableMatrix groupDrawable = new DrawableMatrix(group, 2);
+		groupDrawable = new BorderDecorator(new SpacerDecorator(groupDrawable));
+        groupDrawable.Draw(new ConsoleDrawer('$'));
 	}
 }

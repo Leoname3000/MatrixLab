@@ -10,6 +10,11 @@ namespace Logic
 			Children = children;
 		}
 
+		public void AddMatrix(IMatrix matrix)
+		{
+			Children.Add(matrix);
+		}
+
 		public (int, int, int) ItemOfChild(int row, int col)
 		{
 			for (int childIdx = 0; childIdx < Children.Count; childIdx++)

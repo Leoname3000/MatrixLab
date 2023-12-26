@@ -36,7 +36,7 @@ namespace Logic
 			(row, col) = (childRow, childCol);
 			if (childIndex >= 0)
 			{
-				var child = groupMatrix.Children[childIndex];
+				var child = groupMatrix.GetChild(childIndex);
 				child.Accept(this);
 			}
 		}

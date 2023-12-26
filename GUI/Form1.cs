@@ -56,10 +56,20 @@ namespace GUI
 
         private void generateGroupButton_Click(object sender, EventArgs e)
         {
-            IMatrix first = new ScatterMatrix(5, 4);
-            IMatrix second = new SimpleMatrix(2, 2);
-            IMatrix third = new SimpleMatrix(3, 3);
+            IMatrix first = new SimpleMatrix(5, 4);
+            IMatrix second = new SimpleMatrix(1, 3);
+            IMatrix third = new SimpleMatrix(3, 2);
             IMatrix group = new GroupMatrix(new List<IMatrix> { first, second, third });
+            UpdateMatrix(group);
+            Redraw();
+        }
+
+        private void generateVerticalGroupButton_Click(object sender, EventArgs e)
+        {
+            IMatrix first = new SimpleMatrix(5, 4);
+            IMatrix second = new SimpleMatrix(1, 3);
+            IMatrix third = new SimpleMatrix(3, 2);
+            IMatrix group = new VerticalGroupMatrix(new List<IMatrix> { first, second, third });
             UpdateMatrix(group);
             Redraw();
         }

@@ -3,19 +3,24 @@ namespace Logic
 {
 	public class GroupMatrix : IMatrix
 	{
-		public List<IMatrix> Children { get; protected set; }
+		protected List<IMatrix> Children { get; set; }
 
 		public GroupMatrix(List<IMatrix> children)
 		{
 			Children = children;
 		}
 
-		public void AddMatrix(IMatrix matrix)
+		public virtual void AddMatrix(IMatrix matrix)
 		{
 			Children.Add(matrix);
 		}
 
-		public (int, int, int) ItemOfChild(int row, int col)
+		public IMatrix GetChild(int index)
+		{
+			return Children[index];
+		}
+
+        public virtual (int, int, int) ItemOfChild(int row, int col)
 		{
 			for (int childIdx = 0; childIdx < Children.Count; childIdx++)
 			{
@@ -31,7 +36,7 @@ namespace Logic
 			return (-1, row, col);
 		}
 
-		public double GetItem(int row, int col)
+        public double GetItem(int row, int col)
 		{
 			int childIdx, childRow, childCol;
 			(childIdx, childRow, childCol) = ItemOfChild(row, col);
@@ -41,7 +46,7 @@ namespace Logic
 				return 0;
 		}
 
-		public void SetItem(int row, int col, double item)
+        public void SetItem(int row, int col, double item)
 		{
 			int childIdx, childRow, childCol;
 			(childIdx, childRow, childCol) = ItemOfChild(row, col);
@@ -49,7 +54,7 @@ namespace Logic
 				Children[childIdx].SetItem(childRow, childCol, item);
 		}
 
-		public int Columns
+        public virtual int Columns
 		{
 			get
 			{
@@ -62,7 +67,7 @@ namespace Logic
 			}
 		}
 
-		public int Rows
+        public virtual int Rows
 		{
 			get
 			{

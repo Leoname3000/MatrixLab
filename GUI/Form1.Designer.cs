@@ -39,6 +39,7 @@
             plusBorderButton = new Button();
             minusBorderButton = new Button();
             panel = new Panel();
+            generateVerticalGroupButton = new Button();
             groupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,7 +66,7 @@
             // borderCheckBox
             // 
             borderCheckBox.AutoSize = true;
-            borderCheckBox.Location = new Point(53, 179);
+            borderCheckBox.Location = new Point(53, 219);
             borderCheckBox.Name = "borderCheckBox";
             borderCheckBox.Size = new Size(113, 19);
             borderCheckBox.TabIndex = 2;
@@ -75,6 +76,7 @@
             // 
             // groupBox
             // 
+            groupBox.Controls.Add(generateVerticalGroupButton);
             groupBox.Controls.Add(generateGroupButton);
             groupBox.Controls.Add(restoreButton);
             groupBox.Controls.Add(swapButton);
@@ -86,7 +88,7 @@
             groupBox.Controls.Add(generateScatterButton);
             groupBox.Location = new Point(48, 32);
             groupBox.Name = "groupBox";
-            groupBox.Size = new Size(305, 380);
+            groupBox.Size = new Size(305, 421);
             groupBox.TabIndex = 3;
             groupBox.TabStop = false;
             groupBox.Text = "Управление";
@@ -103,7 +105,7 @@
             // 
             // restoreButton
             // 
-            restoreButton.Location = new Point(39, 310);
+            restoreButton.Location = new Point(39, 350);
             restoreButton.Name = "restoreButton";
             restoreButton.Size = new Size(227, 31);
             restoreButton.TabIndex = 7;
@@ -113,7 +115,7 @@
             // 
             // swapButton
             // 
-            swapButton.Location = new Point(39, 269);
+            swapButton.Location = new Point(39, 309);
             swapButton.Name = "swapButton";
             swapButton.Size = new Size(227, 31);
             swapButton.TabIndex = 6;
@@ -123,7 +125,7 @@
             // 
             // transposeButton
             // 
-            transposeButton.Location = new Point(39, 228);
+            transposeButton.Location = new Point(39, 268);
             transposeButton.Name = "transposeButton";
             transposeButton.Size = new Size(227, 31);
             transposeButton.TabIndex = 5;
@@ -134,7 +136,7 @@
             // plusBorderButton
             // 
             plusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            plusBorderButton.Location = new Point(233, 175);
+            plusBorderButton.Location = new Point(233, 215);
             plusBorderButton.Name = "plusBorderButton";
             plusBorderButton.Size = new Size(32, 28);
             plusBorderButton.TabIndex = 4;
@@ -145,7 +147,7 @@
             // minusBorderButton
             // 
             minusBorderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            minusBorderButton.Location = new Point(185, 175);
+            minusBorderButton.Location = new Point(185, 215);
             minusBorderButton.Name = "minusBorderButton";
             minusBorderButton.Size = new Size(32, 28);
             minusBorderButton.TabIndex = 3;
@@ -159,6 +161,16 @@
             panel.Name = "panel";
             panel.Size = new Size(572, 442);
             panel.TabIndex = 4;
+            // 
+            // generateVerticalGroupButton
+            // 
+            generateVerticalGroupButton.Location = new Point(39, 168);
+            generateVerticalGroupButton.Name = "generateVerticalGroupButton";
+            generateVerticalGroupButton.Size = new Size(227, 31);
+            generateVerticalGroupButton.TabIndex = 9;
+            generateVerticalGroupButton.Text = "Генерация верт. группы";
+            generateVerticalGroupButton.UseVisualStyleBackColor = true;
+            generateVerticalGroupButton.Click += generateVerticalGroupButton_Click;
             // 
             // Form1
             // 
@@ -187,5 +199,6 @@
         private Button restoreButton;
         private Button swapButton;
         private Button generateGroupButton;
+        private Button generateVerticalGroupButton;
     }
 }

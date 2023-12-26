@@ -21,7 +21,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Vector\" />
-    <Folder Include="Matrix\" />
     <Folder Include="Drawable\" />
     <Folder Include="Drawer\" />
     <Folder Include="Visitor\" />

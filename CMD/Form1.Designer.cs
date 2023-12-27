@@ -68,7 +68,7 @@
             // 
             // panel
             // 
-            panel.Location = new Point(340, 35);
+            panel.Location = new Point(332, 53);
             panel.Name = "panel";
             panel.Size = new Size(243, 151);
             panel.TabIndex = 2;
@@ -77,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(631, 235);
+            ClientSize = new Size(630, 235);
             Controls.Add(panel);
             Controls.Add(groupBox);
             Name = "Form1";
